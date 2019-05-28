@@ -6,10 +6,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./student.component.css']
 })
 export class StudentComponent implements OnInit {
-
+  assessment: any ; //load all assessment
+  student: any; //load all student
   constructor() { }
 
   ngOnInit() {
   }
-
+  delete(id: number){
+    
+  }
 }

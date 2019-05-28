@@ -27,8 +27,8 @@
           <td>84+123456789, test@gmail.com</td>
           <td>Testing course 1<br> Testing course 2</td>
           <td>
-            <i class="fas fa-user-edit" routerLink="/editUser"></i>
-            <i class="fas fa-trash-alt" (click)="delete(student.id,i)"></i>
+            <i class="fas fa-user-edit" routerLink="/editStudent/0"></i>
+            <i class="fas fa-trash-alt" (click)="delete(0)" data-toggle="modal" data-target="#myModal"></i>
           </td>
         </tr>
       </tbody>
@@ -39,10 +39,19 @@
           <td>{{student.firstName}}</td>
           <td>{{student.lastName}}</td>
           <td>{{student.phone}},{{student.email}}</td>
-          <td>{{student.course}}</td>
+          <td>
+            <div *ngIf="assessment">
+              <div *ngFor="let ass of assessment">
+                <div *ngIf="ass.student.id === student.id" >
+                  {{ass.course.name}}<br>
+                </div>
+            </div>
+          </div>
+            
+          </td>
           <td>
             <i class="fas fa-student-edit" routerLink="/editUser/{{student.id}}"></i>
-            <i class="fas fa-trash-alt" (click)="delete(student.id,i)"></i>
+            <i class="fas fa-trash-alt" (click)="delete(i)"></i>
           </td>
         </tr>
       </tbody>
@@ -50,13 +59,28 @@
     <!-- <div class="mx-auto text-center" ><pagination-controls (pageChange)="p = $event"></pagination-controls></div> -->
   </div>
 </div>
-<!-- <div [ngStyle]="{ 'display' : display ? 'grid' : 'none'}" class="container fixed-top deleteDialog rounded-lg">
-  <div class="text-center">
-  <h4 class="text-danger font-weight-bolder">Confirm delete student</h4>
-  <h3>{{userName}} ?</h3>
-  <div class="row mx-auto">
-    <button class="btn btn-warning mx-auto" type="button" (click)="delete()">Confirm</button>
-    <button class="btn btn-danger mx-auto" type="button" (click)="cancel()">Cancel</button>
-  </div>
-</div>
-</div> -->
+  <!-- The Modal -->
+  <div class="modal" id="myModal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+    
+          <!-- Modal Header -->
+          <div class="modal-header">
+            <h4 class="modal-title">Delete?</h4>
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+          </div>
+    
+          <!-- Modal body -->
+          <div class="modal-body">
+            Do you want pernament delete this student? 
+          </div>
+    
+          <!-- Modal footer -->
+          <div class="modal-footer">
+              <button type="button" class="btn btn-success" data-dismiss="modal">Delete</button>
+            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+          </div>
+    
+        </div>
+      </div>
+    </div>

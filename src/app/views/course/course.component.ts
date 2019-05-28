@@ -11,5 +11,7 @@ export class CourseComponent implements OnInit {
 
   ngOnInit() {
   }
-
+  delete(id: number){
+    
+  }
 }

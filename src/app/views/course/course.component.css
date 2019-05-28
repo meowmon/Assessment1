@@ -6,14 +6,6 @@
 i{
    padding-left: 10px;
 }
-.deleteDialog{
-    margin-top: 312px;
-    width: fit-content;
-    height: 150px;
-    padding: 20px 20px 20px 20px;
-    border: outset 5px rgb(85, 134, 226);
-    background-image: linear-gradient(to bottom right, rgb(104, 235, 154), aqua);
-}
 .table-responsive{
     margin-top: 10px;
 }

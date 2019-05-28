@@ -1,58 +1,68 @@
 <h2 class="text-center">New Course</h2>
 <div class="container mx-auto">
   <form [formGroup]="courseInfo" (submit)="OnSubmit()">
-      <h4>User information:</h4>
+      <h4>Course's information:</h4>
       <div class="form-group row no-margin">
           <div class="col-md-12">
-              Course name:
-              <input type="text" formControlName="name" class="form-control">
+              <label for="name">Course name:</label>
+              <input type="text" formControlName="name" class="form-control" id="name" placeholder="Course's name">
               <div *ngIf="(submitted || courseInfo.controls.name?.touched || courseInfo.controls.name?.dirty) && courseInfo.controls.name?.errors " class="error">
-                <div *ngIf="courseInfo.controls.name.errors.required" style="color:red">Your first name is required
+                <div *ngIf="courseInfo.controls.name.errors.required" style="color:red">Course's name is required
                 </div>
               </div>
           </div>
       </div>
       <div class="form-group row no-margin">
         <div class="col-md-6"> 
-          Start date:
-          <input type="date" name="startDate" max="3000-12-31" formControlName="startDate"
+            <label for="sdate">Start date:</label>
+          <input type="date" name="startDate" id="sdate" max="3000-12-31" formControlName="startDate"
           min="1000-01-01" class="form-control">
             <div *ngIf="(submitted || courseInfo.get('startDate')?.touched || courseInfo.get('startDate')?.dirty) && courseInfo.get('startDate')?.errors " class="error">
-              <div *ngIf="courseInfo.get('startDate')?.errors?.required" style="color:red">Your birthday is required</div>
+              <div *ngIf="courseInfo.get('startDate')?.errors?.required" style="color:red">Start date is required</div>
             </div>
           </div>
           <div class="col-md-6"> 
-          End date:
-            <input type="date" name="endDate" max="3000-12-31" formControlName="endDate"
+              <label for="edate">End date:</label>
+            <input type="date" name="endDate" id="edate" max="3000-12-31" formControlName="endDate"
             min="1000-01-01" class="form-control">
               <div *ngIf="(submitted || courseInfo.get('endDate')?.touched || courseInfo.get('endDate')?.dirty) && courseInfo.get('endDate')?.errors " class="error">
-                <div *ngIf="courseInfo.get('endDate')?.errors?.required" style="color:red">Your birthday is required</div>
+                <div *ngIf="courseInfo.get('endDate')?.errors?.required" style="color:red">End date is required</div>
               </div>
             </div>
       </div>
         <div class="form-group row no-margin">
           <div class="col-md-6">
-            Credits:
-            <input type="text" formControlName="phone" class="form-control" placeholder="84+">
-            <div *ngIf="(courseInfo.get('contact.phone')?.touched || courseInfo.get('contact.phone')?.dirty) && courseInfo.get('contact.phone')?.errors" class="error">
-              <div *ngIf="courseInfo.get('contact.phone')?.errors.required" style="color:red">Your first name is required
-              </div>
-            </div>
+              <label for="credits">Credits</label>
+              <select class="form-control" id="credits" formControlName="credits">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+              </select>
           </div>
           <div class="col">
-            Tuition:
-            <input type="text" formControlName="email" class="form-control">
-            <div *ngIf="(courseInfo.get('contact.email')?.touched || courseInfo.get('contact.email')?.dirty) && courseInfo.get('contact.email')?.errors " class="error">
-              <div *ngIf="courseInfo.get('contact.email')?.errors?.required" style="color:red">Your email is required</div>
+              <label for="tuition">Tuition:</label>
+            <input type="text" formControlName="tuition" id="tuition" class="form-control">
+            <div *ngIf="(courseInfo.get('tuition')?.touched || courseInfo.get('tuition')?.dirty) && courseInfo.get('tuition')?.errors " class="error">
+              <div *ngIf="courseInfo.get('tuition')?.errors?.required" style="color:red">Tuition is required</div>
             </div>
         </div>
+        </div>
+        <div class="form-group row no-margin">
+          <div class="col-md-6">
+              <label for="status">Status</label>
+              <select class="form-control" id="status" formControlName="status">
+                <option *ngFor="let state of status">{{state}}</option>
+              </select>
+          </div>
         </div>
       <div class="row no-margin">
         <div class="col"><button class="btn btn-outline-primary btn-sm" type="button" (click)=Onsubmit(content)><i class="far fa-save"> Save</i></button></div>
       </div>
   </form>
 </div>
-<!-- <ng-template #content let-modal>
+<ng-template #content let-modal>
   <div class="modal-header">
     <h4 class="modal-title">Hi there!</h4>
     <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
@@ -60,9 +70,9 @@
     </button>
   </div>
   <div class="modal-body">
-    <p>Your new student has been added!</p>
+    <p>{{message}}</p>
   </div>
   <div class="modal-footer">
     <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')"> Close</button>
   </div>
-</ng-template> -->
+</ng-template>

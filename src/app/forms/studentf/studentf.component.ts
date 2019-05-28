@@ -5,9 +5,6 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { ActivatedRoute, Router } from '@angular/router';
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 
-
-
-
 @Component({
   selector: 'app-studentf',
   templateUrl: './studentf.component.html',
@@ -20,8 +17,9 @@ export class StudentfComponent implements OnInit {
   studentInfo: FormGroup;
   gender: string[] = ['Male','Female'];
   closeResult: string;
+  valid=false;
+  message
   user: any;
-  userTel: string[];
   constructor( private fb : FormBuilder, private route: ActivatedRoute,private router: Router, private modalService: NgbModal) {
    }
 
@@ -41,6 +39,13 @@ export class StudentfComponent implements OnInit {
     console.log(this.id)
   }
   Onsubmit(content){
+    console.log(this.studentInfo);
+  if(this.studentInfo.status=="VALID"){
+      this.message="Your course has been added!!";
+      this.valid=true;
+  }else{ 
+    this.message="Please fill in all blanks!!"
+  }
     this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
       this.closeResult = `Closed with: ${result}`;
     }, (reason) => {
@@ -49,14 +54,13 @@ export class StudentfComponent implements OnInit {
  
   }
   private getDismissReason(reason: any): string {
+    if(this.valid)
+    this.router.navigate([""]);
     if (reason === ModalDismissReasons.ESC) {
-      this.router.navigate([""]);
       return 'by pressing ESC';
     } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
-      this.router.navigate([""]);
       return 'by clicking on a backdrop';
     } else {
-      this.router.navigate([""]);
       return  `with: ${reason}`;
     }
   }

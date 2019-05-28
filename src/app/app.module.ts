@@ -13,6 +13,7 @@ import {HttpClientModule} from '@angular/common/http';
 import { StudentfComponent } from './forms/studentf/studentf.component';
 import { CoursefComponent } from './forms/coursef/coursef.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { EnrollmentfComponent } from './forms/enrollmentf/enrollmentf.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
     NavbarComponent,
     StudentfComponent,
     CoursefComponent,
+    EnrollmentfComponent,
   ],
   imports: [
     BrowserModule,

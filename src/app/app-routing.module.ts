@@ -5,6 +5,7 @@ import { CourseComponent } from './views/course/course.component';
 import { EnrollmentComponent } from './views/enrollment/enrollment.component';
 import { StudentfComponent } from './forms/studentf/studentf.component';
 import { CoursefComponent } from './forms/coursef/coursef.component';
+import { EnrollmentfComponent } from './forms/enrollmentf/enrollmentf.component';
 
 const routes: Routes = [
   { path: '', component: StudentComponent},
@@ -12,7 +13,8 @@ const routes: Routes = [
   { path: 'editStudent/:id', component: StudentfComponent},
   { path: 'courses', component: CourseComponent},
   { path: 'newCourse', component : CoursefComponent},
-  { path: 'enroll', component: EnrollmentComponent}
+  { path: 'enroll', component: EnrollmentComponent},
+  { path: 'newEnroll', component: EnrollmentfComponent}
 ];
 
 @NgModule({
