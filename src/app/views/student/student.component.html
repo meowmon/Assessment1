@@ -3,7 +3,7 @@
   <div class="row"> 
     <div class="col-md-9"><button class="btn btn-outline-primary" routerLink="/newStudent">New+</button></div>
     <div class="col-md-3">
-      <input style="margin-right: 0px;" class="form-control" [(ngModel)]="searchText" placeholder="Search.." >
+      <input style="margin-right: 0px;" class="form-control" [(ngModel)]="searchText" placeholder="Search by name, contact.." >
     </div>
     </div>
   
@@ -34,15 +34,15 @@
       </tbody>
       <tbody *ngIf="students">
         <!-- <tr *ngFor="let student of students| userFilter: {firstName: searchText, lastName:searchText, gender: searchText, phone:searchText, gmail:searchText, address:searchText, country:searchText} |; index as i; trackBy: trackByFn"> -->
-        <tr *ngFor="let student of students | paginate: { itemsPerPage: 8, currentPage: p}; index as i; trackBy: trackByFn " >
+        <tr *ngFor="let student of students| userFilter: { firstName: searchText, lastName: searchText, phone:searchText, email:searchText}  | paginate: { itemsPerPage: 8, currentPage: p}; index as i; trackBy: trackByFn " >
           <th scope="row">{{i+1}}</th>
           <td>{{student.firstName}}</td>
           <td>{{student.lastName}}</td>
           <td>{{student.contact.phone}}, {{student.contact.email}}</td>
           <td>
             <div *ngIf="enrollments">
-              <div *ngFor="let enroll of enrollment">
-                <div *ngIf="enroll.student.id === student.id" >
+              <div *ngFor="let enroll of enrollments">
+                <div *ngIf="enroll.student.studentId === student.id" >
                   {{enroll.course.name}}<br>
                 </div>
             </div>

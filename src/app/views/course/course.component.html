@@ -38,7 +38,7 @@
       </tbody>
       <tbody *ngIf="courses">
         <!-- <tr *ngFor="let user of users| userFilter: {firstName: searchText, lastName:searchText, gender: searchText, phone:searchText, gmail:searchText, address:searchText, country:searchText} |; index as i; trackBy: trackByFn"> -->
-        <tr *ngFor="let course of courses| paginate: { itemsPerPage: 8, currentPage: p}; index as i; trackBy: trackByFn" >
+        <tr *ngFor="let course of courses| userFilter: { name: searchText, credits: searchText , startDate:searchText, endDate: searchText, tuition:searchText, status:searchText} | paginate: { itemsPerPage: 8, currentPage: p}; index as i; trackBy: trackByFn" >
           <th scope="row">{{i+1}}</th>
           <td>{{course.name}}</td>
           <td>{{course.credits}}</td>

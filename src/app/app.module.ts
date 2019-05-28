@@ -14,6 +14,7 @@ import { CoursefComponent } from './forms/coursef/coursef.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { EnrollmentfComponent } from './forms/enrollmentf/enrollmentf.component';
 import { NgxPaginationModule} from 'ngx-pagination'
+import { UserPipe } from './pipes/userPipe'
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { NgxPaginationModule} from 'ngx-pagination'
     StudentfComponent,
     CoursefComponent,
     EnrollmentfComponent,
+    UserPipe
   ],
   imports: [
     BrowserModule,
