@@ -1,0 +1,84 @@
+<h2 class="text-center">New Student</h2>
+<div class="container mx-auto">
+  <form [formGroup]="studentInfo" (submit)="OnSubmit()">
+      <h4>User information:</h4>
+      <div class="form-group row no-margin">
+          <div class="col-md-6">
+              Firstname:
+              <input type="text" formControlName="firstName" class="form-control">
+              <div *ngIf="(submitted || studentInfo.controls.firstName?.touched || studentInfo.controls.firstName?.dirty) && studentInfo.controls.firstName?.errors " class="error">
+                <div *ngIf="studentInfo.controls.firstName.errors.required" style="color:red">Your first name is required
+                </div>
+              </div>
+          </div>
+      
+          <div class="col-md-6">
+              Lastname:
+              <input type="text" formControlName="lastName" class="form-control">
+              <div *ngIf="(submitted || studentInfo.controls.lastName?.touched || studentInfo.controls.lastName?.dirty) && studentInfo.controls.lastName?.errors " class="error">
+                <div *ngIf="studentInfo.controls.lastName.errors.required" style="color:red">Your last name is required</div>
+              </div>
+          </div>
+      </div>
+      <div class="form-group row no-margin">
+        <div class="col-md-6"> 
+          Date of Birth:
+          <input type="date" name="bday" max="3000-12-31" formControlName="bday"
+          min="1000-01-01" class="form-control">
+            <div *ngIf="(submitted || studentInfo.get('bday')?.touched || studentInfo.get('bday')?.dirty) && studentInfo.get('bday')?.errors " class="error">
+              <div *ngIf="studentInfo.get('bday')?.errors?.required" style="color:red">Your birthday is required</div>
+            </div>
+          </div>
+        <div class="col-md-2">Gender:</div>
+        <div class="col">
+          <div class="form-check">
+              <input type="radio" id="gender1" formControlName="gender" name="gender" class="form-check-input" value="Male">
+              <label class="form-check-label" for="gender1">Male</label>
+          </div>
+          <div class="form-check">
+              <input type="radio" id="gender2" formControlName="gender" name="gender" class="form-check-input" value="Female">
+              <label class="form-check-label" for="gender2">Female</label>
+          </div>
+        </div>
+      </div>
+      <h4>Contact information:</h4>
+      <fieldset formGroupName="contact">
+        <div class="form-group row no-margin">
+          <div class="col-md-6">
+            Phone:
+            <input type="text" formControlName="phone" class="form-control" placeholder="84+">
+            <div *ngIf="(studentInfo.get('contact.phone')?.touched || studentInfo.get('contact.phone')?.dirty) && studentInfo.get('contact.phone')?.errors" class="error">
+              <div *ngIf="studentInfo.get('contact.phone')?.errors.required" style="color:red">Your first name is required
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="form-group row no-margin">
+            <div class="col">
+                Email:
+                <input type="text" formControlName="email" class="form-control">
+                <div *ngIf="(studentInfo.get('contact.email')?.touched || studentInfo.get('contact.email')?.dirty) && studentInfo.get('contact.email')?.errors " class="error">
+                  <div *ngIf="studentInfo.get('contact.email')?.errors?.required" style="color:red">Your email is required</div>
+                </div>
+            </div>
+        </div>
+      </fieldset>
+      <div class="row no-margin">
+        <div class="col"><button class="btn btn-outline-primary btn-sm" type="button" (click)=Onsubmit(content)><i class="far fa-save"> Save</i></button></div>
+      </div>
+  </form>
+</div>
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title">Hi there!</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <p>Your new student has been added!</p>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')"> Close</button>
+  </div>
+</ng-template>

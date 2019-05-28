@@ -1,0 +1,77 @@
+<h2 class="text-center">Courses list</h2>
+<div class="container">
+  <div class="row"> 
+    <div class="col-md-9"><button class="btn btn-outline-primary" routerLink="/newCourse">New+</button></div>
+    <div class="col-md-3">
+      <input style="margin-right: 0px;" class="form-control" [(ngModel)]="searchText" placeholder="Search.." >
+    </div>
+    </div>
+  
+  <div class="table-responsive">
+    <table class="table table-hover">
+      <thead class="thead-light">
+        <tr>
+          <th scope="col">Id</th>
+          <th scope="col">Course Name</th>
+          <th scope="col">Credits</th>
+          <th scope="col">Start date</th>
+          <th scope="col">End date</th>
+          <th scope="col">Tuition</th>
+          <th scope="col">Handle</th>
+        </tr>
+      </thead>
+      <tbody *ngIf="!courses">
+        <tr>
+          <th scope="row">0</th>
+          <td>Testing Course</td>
+          <td>4</td>
+          <td>2019-03-06</td>
+          <td>2019-06-06</td>
+          <td>2.550.000</td>
+          <td>
+            <i class="fas fa-user-edit" routerLink="/editStudent"></i>
+            <i class="fas fa-trash-alt" (click)="delete(0)"></i>
+          </td>
+        </tr>
+      </tbody>
+      <tbody *ngIf="courses">
+        <!-- <tr *ngFor="let user of users| userFilter: {firstName: searchText, lastName:searchText, gender: searchText, phone:searchText, gmail:searchText, address:searchText, country:searchText} |; index as i; trackBy: trackByFn"> -->
+        <tr>
+          <th scope="row">0</th>
+          <td>Testing Course</td>
+          <td>4</td>
+          <td>2019-03-06</td>
+          <td>2019-06-06</td>
+          <td>2.550.000</td>
+          <td>
+            <i class="fas fa-user-edit" routerLink="/editUser/{{course.id}}"></i>
+            <i class="fas fa-trash-alt" (click)="delete(i)"></i>
+          </td>
+        </tr>
+        <tr *ngFor="let course of courses; index as i; trackBy: trackByFn" >
+          <th scope="row">{{i+1}}</th>
+          <td>{{course.name}}</td>
+          <td>{{course.credit}}</td>
+          <td>{{course.start_date}}</td>
+          <td>{{course.end_date}}</td>
+          <td>{{course.tuition}}</td>
+          <td>
+            <i class="fas fa-user-edit" routerLink="/editUser/{{course.id}}"></i>
+            <i class="fas fa-trash-alt" (click)="delete(course.id,i)"></i>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <!-- <div class="mx-auto text-center" ><pagination-controls (pageChange)="p = $event"></pagination-controls></div> -->
+  </div>
+</div>
+<!-- <div [ngStyle]="{ 'display' : display ? 'grid' : 'none'}" class="container fixed-top deleteDialog rounded-lg">
+  <div class="text-center">
+  <h4 class="text-danger font-weight-bolder">Confirm delete user</h4>
+  <h3>{{userName}} ?</h3>
+  <div class="row mx-auto">
+    <button class="btn btn-warning mx-auto" type="button" (click)="deleteUser()">Confirm</button>
+    <button class="btn btn-danger mx-auto" type="button" (click)="cancel()">Cancel</button>
+  </div>
+</div>
+</div> -->
