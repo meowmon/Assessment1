@@ -1,0 +1,27 @@
+<h2 class="text-center">Enrollment</h2>
+<div class="container mx-auto">
+    <h4>Choose student and course:</h4>
+      <div class="form-group row no-margin">
+          <div class="col-md-6">
+              <label for="student">Enroll student</label>
+              <select class="form-control" id="student" [(ngModel)]="student" name="student" (click)="getStudent()">
+                <option *ngFor="let student of students; index as i" value="{{i}}">{{student.firstName}} {{student.lastName}} - id: {{student.id}} </option>
+              </select>
+          </div>
+            <div class="col-md-6">
+                <label for="course">Enroll course</label>
+                <select class="form-control" id="course" [(ngModel)]="course" name="course" (click)="getCourse()">
+                  <option *ngFor="let course of courses; index as i" value="{{i}}">{{course.name}} </option>
+                </select>
+            </div>
+          </div>
+          <hr>
+          <h4>Enrollment infomation:</h4>
+          <span>Student: {{enrollmentForm.value.student.name}}</span><br>
+          <span>Student id: {{enrollmentForm.value.student.studentId}}</span><br>
+          <span>Course: {{enrollmentForm.value.course.name}}</span><br>
+          <span>Course id: {{enrollmentForm.value.course.courseId}}</span><br>
+          <div class="row no-margin">
+              <div class="col"><button class="btn btn-outline-primary btn-sm" type="button" (click)=Onsubmit()><i class="far fa-save"> Save</i></button></div>
+            </div>
+</div>

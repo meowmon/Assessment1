@@ -31,29 +31,29 @@
           <td>2.550.000</td>
           <td>Closed</td>
           <td>
-            <i class="fas fa-user-edit" routerLink="/editStudent"></i>
+            <i class="fas fa-user-edit" routerLink="/editCourse"></i>
             <i class="fas fa-trash-alt" (click)="delete(0)" data-toggle="modal" data-target="#myModal"></i>
           </td>
         </tr>
       </tbody>
       <tbody *ngIf="courses">
         <!-- <tr *ngFor="let user of users| userFilter: {firstName: searchText, lastName:searchText, gender: searchText, phone:searchText, gmail:searchText, address:searchText, country:searchText} |; index as i; trackBy: trackByFn"> -->
-        <tr *ngFor="let course of courses; index as i; trackBy: trackByFn" >
+        <tr *ngFor="let course of courses| paginate: { itemsPerPage: 8, currentPage: p}; index as i; trackBy: trackByFn" >
           <th scope="row">{{i+1}}</th>
           <td>{{course.name}}</td>
-          <td>{{course.credit}}</td>
-          <td>{{course.start_date}}</td>
-          <td>{{course.end_date}}</td>
+          <td>{{course.credits}}</td>
+          <td>{{course.startDate}}</td>
+          <td>{{course.endDate}}</td>
           <td>{{course.tuition}}</td>
           <td>{{course.status}}</td>
           <td>
-            <i class="fas fa-user-edit" routerLink="/editUser/{{course.id}}"></i>
+            <i class="fas fa-user-edit" routerLink="/editCourse/{{course.id}}"></i>
             <i class="fas fa-trash-alt" (click)="delete(course.id,i)"></i>
           </td>
         </tr>
       </tbody>
     </table>
-    <!-- <div class="mx-auto text-center" ><pagination-controls (pageChange)="p = $event"></pagination-controls></div> -->
+    <div class="mx-auto text-center" ><pagination-controls (pageChange)="p = $event"></pagination-controls></div>
   </div>
 </div>
   
@@ -75,7 +75,7 @@
   
         <!-- Modal footer -->
         <div class="modal-footer">
-            <button type="button" class="btn btn-success" data-dismiss="modal">Delete</button>
+          <button type="button" class="btn btn-success" data-dismiss="modal">Delete</button>
           <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
         </div>
   

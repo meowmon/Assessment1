@@ -1,0 +1,107 @@
+{
+  "student": [
+    {
+      "firstName": "Hieu",
+      "lastName": "Trieu",
+      "bday": "1996-03-22",
+      "gender": "Male",
+      "contact": {
+        "phone": "841636289848",
+        "email": "hieu@gmail.com"
+      },
+      "courses": "null",
+      "id": 1
+    },
+    {
+      "firstName": "Nguyen",
+      "lastName": "Binh",
+      "bday": "1996-03-06",
+      "gender": "Male",
+      "contact": {
+        "phone": "84169161616",
+        "email": "binh@gmail.com"
+      },
+      "courses": "null",
+      "id": 2
+    },
+    {
+      "firstName": "Hieu",
+      "lastName": "Nguyen",
+      "bday": "1998-06-05",
+      "gender": "Male",
+      "contact": {
+        "phone": "841636289849",
+        "email": "hieunguywn@gmail.com"
+      },
+      "id": 3
+    }
+  ],
+  "courses": [
+    {
+      "name": "Java Fresher 21",
+      "status": "Incoming",
+      "startDate": "2019-03-06",
+      "endDate": "2019-03-01",
+      "credits": "2",
+      "tuition": "3500000",
+      "id": 1
+    },
+    {
+      "name": "Java Fresher 22",
+      "status": "Incoming",
+      "startDate": "2019-05-26",
+      "endDate": "2019-08-26",
+      "credits": "3",
+      "tuition": "2600000",
+      "id": 2
+    }
+  ],
+  "enrollment": [
+    {
+      "student": {
+        "name": "Nguyen Binh",
+        "studentId": 2
+      },
+      "course": {
+        "name": "Java Fresher 22",
+        "courseId": 2
+      },
+      "id": 3
+    },
+    {
+      "student": {
+        "name": "Nguyen Binh",
+        "studentId": 2
+      },
+      "course": {
+        "name": "Java Fresher 22",
+        "courseId": 2
+      },
+      "id": 4
+    },
+    {
+      "student": {
+        "name": "Nguyen Binh",
+        "studentId": 2
+      },
+      "course": {
+        "name": "Java Fresher 22",
+        "courseId": 2
+      },
+      "time": "2019-05-28T15:39:21.596Z",
+      "id": 5
+    },
+    {
+      "student": {
+        "name": "Hieu Trieu",
+        "studentId": 1
+      },
+      "course": {
+        "name": "Java Fresher 21",
+        "courseId": 1
+      },
+      "time": "28-05-2019 10:44:11 PM",
+      "id": 6
+    }
+  ]
+}

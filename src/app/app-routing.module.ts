@@ -12,6 +12,8 @@ const routes: Routes = [
   { path: 'newStudent', component: StudentfComponent},
   { path: 'editStudent/:id', component: StudentfComponent},
   { path: 'courses', component: CourseComponent},
+  { path: 'editCourse/:id', component: CoursefComponent},
+  { path: 'editEnroll/id',component:EnrollmentfComponent},
   { path: 'newCourse', component : CoursefComponent},
   { path: 'enroll', component: EnrollmentComponent},
   { path: 'newEnroll', component: EnrollmentfComponent}

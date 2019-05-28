@@ -30,21 +30,20 @@
           </td>
         </tr>
       </tbody>
-      <tbody *ngIf="enrollment">
-        <!-- <tr *ngFor="let student of students| userFilter: {firstName: searchText, lastName:searchText, gender: searchText, phone:searchText, gmail:searchText, address:searchText, country:searchText} |; index as i; trackBy: trackByFn"> -->
-        <tr *ngFor="let enroll of enrollments; index as i; trackBy: trackByFn" >
+      <tbody *ngIf="enrollments">
+        <tr *ngFor="let enroll of enrollments| paginate: { itemsPerPage: 8, currentPage: p}; index as i; trackBy: trackByFn" >
           <th scope="row">{{i+1}}</th>
-          <td>{{enroll.firstName}} {{enroll.lastName}}</td>
-          <td>{{enroll.courseName</td>
+          <td>{{enroll.student.name}}</td>
+          <td>{{enroll.course.name}}</td>
           <td>{{enroll.time}}</td>
           <td>
-            <i class="fas fa-student-edit" routerLink="/editUser/{{student.id}}"></i>
-            <i class="fas fa-trash-alt" (click)="delete(i)"></i>
+            <i class="fas fa-user-edit" routerLink="/editEnroll/{{enroll.id}}"></i>
+            <i class="fas fa-trash-alt" (click)="delete(i)" data-toggle="modal" data-target="#myModal"></i>
           </td>
         </tr>
       </tbody>
     </table>
-    <!-- <div class="mx-auto text-center" ><pagination-controls (pageChange)="p = $event"></pagination-controls></div> -->
+    <div class="mx-auto text-center" ><pagination-controls (pageChange)="p = $event"></pagination-controls></div>
   </div>
 </div>
   <!-- The Modal -->
@@ -65,7 +64,7 @@
     
           <!-- Modal footer -->
           <div class="modal-footer">
-              <button type="button" class="btn btn-success" data-dismiss="modal">Delete</button>
+              <button type="button" class="btn btn-success" data-dismiss="modal" (click)="deleteNow()">Delete</button>
             <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
           </div>
     

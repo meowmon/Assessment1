@@ -7,13 +7,13 @@ import { StudentComponent } from './views/student/student.component';
 import { CourseComponent } from './views/course/course.component';
 import { EnrollmentComponent } from './views/enrollment/enrollment.component';
 import { NavbarComponent } from './templates/navbar/navbar.component';
-// import {NgxPaginationModule} from 'ngx-pagination';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import { StudentfComponent } from './forms/studentf/studentf.component';
 import { CoursefComponent } from './forms/coursef/coursef.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { EnrollmentfComponent } from './forms/enrollmentf/enrollmentf.component';
+import { NgxPaginationModule} from 'ngx-pagination'
 
 @NgModule({
   declarations: [
@@ -32,7 +32,8 @@ import { EnrollmentfComponent } from './forms/enrollmentf/enrollmentf.component'
     HttpClientModule,
     ReactiveFormsModule,
     FormsModule,
-    NgbModule
+    NgbModule,
+    NgxPaginationModule
   ],
   providers: [],
   bootstrap: [AppComponent]

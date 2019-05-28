@@ -34,29 +34,29 @@
       </tbody>
       <tbody *ngIf="students">
         <!-- <tr *ngFor="let student of students| userFilter: {firstName: searchText, lastName:searchText, gender: searchText, phone:searchText, gmail:searchText, address:searchText, country:searchText} |; index as i; trackBy: trackByFn"> -->
-        <tr *ngFor="let student of students; index as i; trackBy: trackByFn" >
+        <tr *ngFor="let student of students | paginate: { itemsPerPage: 8, currentPage: p}; index as i; trackBy: trackByFn " >
           <th scope="row">{{i+1}}</th>
           <td>{{student.firstName}}</td>
           <td>{{student.lastName}}</td>
-          <td>{{student.phone}},{{student.email}}</td>
+          <td>{{student.contact.phone}}, {{student.contact.email}}</td>
           <td>
-            <div *ngIf="assessment">
-              <div *ngFor="let ass of assessment">
-                <div *ngIf="ass.student.id === student.id" >
-                  {{ass.course.name}}<br>
+            <div *ngIf="enrollments">
+              <div *ngFor="let enroll of enrollment">
+                <div *ngIf="enroll.student.id === student.id" >
+                  {{enroll.course.name}}<br>
                 </div>
             </div>
           </div>
-            
           </td>
           <td>
-            <i class="fas fa-student-edit" routerLink="/editUser/{{student.id}}"></i>
-            <i class="fas fa-trash-alt" (click)="delete(i)"></i>
+            <i class="fas fa-user-edit" routerLink="/editStudent/{{student.id}}"></i>
+            <i class="fas fa-trash-alt" (click)="delete(i)" data-toggle="modal" data-target="#myModal"></i>
           </td>
         </tr>
+        
       </tbody>
     </table>
-    <!-- <div class="mx-auto text-center" ><pagination-controls (pageChange)="p = $event"></pagination-controls></div> -->
+    <div class="mx-auto text-center" ><pagination-controls (pageChange)="p = $event"></pagination-controls></div>
   </div>
 </div>
   <!-- The Modal -->
@@ -77,7 +77,7 @@
     
           <!-- Modal footer -->
           <div class="modal-footer">
-              <button type="button" class="btn btn-success" data-dismiss="modal">Delete</button>
+            <button type="button" class="btn btn-success" (click)="deleteNow()" data-dismiss="modal">Delete</button>
             <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
           </div>
     
