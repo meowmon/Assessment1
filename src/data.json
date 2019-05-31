@@ -1,18 +1,6 @@
 {
   "student": [
     {
-      "firstName": "Hieu",
-      "lastName": "Trieu",
-      "bday": "1996-03-22",
-      "gender": "Male",
-      "contact": {
-        "phone": "841636289848",
-        "email": "hieu@gmail.com"
-      },
-      "courses": "null",
-      "id": 1
-    },
-    {
       "firstName": "Nguyen",
       "lastName": "Binh",
       "bday": "1996-03-06",
@@ -34,6 +22,17 @@
         "email": "hieunguywn@gmail.com"
       },
       "id": 3
+    },
+    {
+      "firstName": "Triệu Hiếu",
+      "lastName": "Hiếu",
+      "bday": "1996-03-22",
+      "gender": "Male",
+      "contact": {
+        "phone": "841636289848",
+        "email": "sontghin@email.com"
+      },
+      "id": 4
     }
   ],
   "courses": [
@@ -102,6 +101,42 @@
       },
       "time": "28-05-2019 11:42:30 PM",
       "id": 7
+    },
+    {
+      "student": {
+        "name": "Hieu Nguyen",
+        "studentId": 3
+      },
+      "course": {
+        "name": "Java Fresher 21",
+        "courseId": 1
+      },
+      "time": "31-05-2019 10:59:35 AM",
+      "id": 8
+    },
+    {
+      "student": {
+        "name": "Hieu Trieu",
+        "studentId": 1
+      },
+      "course": {
+        "name": "Angular 7 ",
+        "courseId": 201
+      },
+      "time": "31-05-2019 11:03:19 AM",
+      "id": 9
+    },
+    {
+      "student": {
+        "name": "Hieu Nguyen",
+        "studentId": 3
+      },
+      "course": {
+        "name": "Angular 7 ",
+        "courseId": 201
+      },
+      "time": "31-05-2019 12:36:05 PM",
+      "id": 10
     }
   ]
 }

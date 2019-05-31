@@ -82,9 +82,9 @@ export class StudentfComponent implements OnInit {
   private getDismissReason(reason: any): string {
     if(this.valid){
       if(this.id !=0)
-        this.studentService.updateStudent(this.id,this.studentInfo.value).subscribe();
+        this.studentService.updateStudent(this.id,this.studentInfo.value).subscribe(data => {location.reload()});
       else
-        this.studentService.addStudent(this.studentInfo.value).subscribe();
+        this.studentService.addStudent(this.studentInfo.value).subscribe(data => {location.reload()});
     this.router.navigate([""]);
   }
     if (reason === ModalDismissReasons.ESC) {

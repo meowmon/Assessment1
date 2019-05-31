@@ -80,10 +80,12 @@ Onsubmit(content){
 }
 private getDismissReason(reason: any): string {
   if(this.valid){
-    if(this.id !=0)
-      this.courseService.updateCourse(this.id,this.courseInfo.value).subscribe();
+    if(this.id !=0){
+      this.courseService.updateCourse(this.id,this.courseInfo.value).subscribe(data => {location.reload()});
+
+    }
     else
-      this.courseService.addCourse(this.courseInfo.value).subscribe();
+      this.courseService.addCourse(this.courseInfo.value).subscribe(data => {location.reload()});
     this.router.navigate(["/courses"]);
   }
   if (reason === ModalDismissReasons.ESC) {

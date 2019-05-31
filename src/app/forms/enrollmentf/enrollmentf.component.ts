@@ -89,7 +89,7 @@ export class EnrollmentfComponent implements OnInit {
     this.enrollmentForm.patchValue({
       time: formatDate(this.date, 'dd-MM-yyyy hh:mm:ss a','en-us', '+0700')
     });
-    this.enrollmentService.addEnrollment(this.enrollmentForm.value).subscribe();
+    this.enrollmentService.addEnrollment(this.enrollmentForm.value).subscribe(data => {location.reload()});
     this.router.navigate(["/enroll"]);
   }
 }
